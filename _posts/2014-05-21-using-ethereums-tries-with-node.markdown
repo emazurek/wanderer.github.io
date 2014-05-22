@@ -80,7 +80,7 @@ The accounts are rlp encoded before they are stored so we need to decoded them a
 
 ## Streaming the Trie
 
-The Last thing we want to do is to read out the entire trie. This might be handy for debugging or just poking around for fun. To do this we are going to use `streams`. If your not familiar with node streams [here](http://nodeschool.io/#stream-adventure) is a really fun place to get stated
+The Last thing we want to do is to read out the entire trie. This might be handy for debugging or just poking around for fun. To do this we are going to use `streams`. If your not familiar with node streams [here](http://nodeschool.io/#stream-adventure) is a really fun place to get stated. Here the on `data` event returns an `object`that has two propeties; the `key` and the `value`. Both should be buffers.
 
 {% highlight javascript %}
 
@@ -109,6 +109,8 @@ stream.on('end', function (val) {
 });
 
 {% endhighlight %}
+
+This should read out all the account's address and the account's contents in the trie.
 
 ## The End?
 [merkle-patricia-tree](https://github.com/wanderer/merkle-patricia-tree) module can do more than what I went over here. It can create, update and delete values too! amazing! And if you actually read all the way to the bottom, thanks for reading.
