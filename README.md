@@ -1,4 +1,4 @@
-[wanderer.github.io](wanderer.github.io)
+[http://wanderer.github.io](wanderer.github.io)
 ==================
 
 my blog
