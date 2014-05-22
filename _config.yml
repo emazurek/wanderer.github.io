@@ -1,0 +1,11 @@
+# Site settings
+title: Wanderer's musings
+email: mjbecze@gmail.com
+username: wanderer
+description: "Wanderer aka Martin Becze writes things here. Mainly about programming"
+baseurl: ""
+url: "http://yourdomain.com"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
