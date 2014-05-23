@@ -43,7 +43,7 @@ var rlp = require('rlp');
 db.get(new Buffer(root, 'hex'), {
   encoding: 'binary'
 }, function (err, value) {
-  var decoded = rlp.decoded(value);
+  var decoded = rlp.decode(value);
   console.log(decoded);
 });
 
@@ -84,10 +84,9 @@ The Last thing we want to do is to read out the entire trie. This might be handy
 
 {% highlight javascript %}
 
-var Trie = require('./index.js'),
+var Trie = require('merkle-patricia-tree'),
   rlp = require('rlp'),
-  levelup = require('levelup'),
-  Sha3 = require('sha3');
+  levelup = require('levelup');
 
 var db = levelup('/home/null/.ethereum/state');
 var root = "12582945fc5ad12c3e7b67c4fc37a68fc0d52d995bb7f7291ff41a2739a7ca16"
