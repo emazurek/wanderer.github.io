@@ -10,4 +10,4 @@ This week I add CLI to [geojson validation module](https://github.com/craveprogr
 
 Next you need some geoJSON. We will use [this](https://raw.githubusercontent.com/wanderer/Detroit-Farm-Map/master/data/map.geojson) for the example. Now to check if it is valid or not simple run `curl https://raw.githubusercontent.com/wanderer/Detroit-Farm-Map/master/data/map.geojson | gjv`. If it was invalid `gjv` would print out the errors else it will just tell you its valid.
 
-you can also validate local file, `gjv file1 files2 ...`
+You can also validate local files like this `gjv file1 files2 ...`
