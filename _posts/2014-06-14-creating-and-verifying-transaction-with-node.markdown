@@ -112,4 +112,4 @@ if(tx.verifySignature()){
 
 And hopefull its verified. For the transaction to be total valid we would also need to check the account of the sender and see if they have at least `tx.totalFee()`. 
 
-And that is all for now I hope you have enjoyed the read. Let me know if you have any question. You can contact me at `mjbecze@gmail.com` or by leaving a comment below. 
+And that is all for now I hope you have enjoyed the read. You can view the documentation for transaction [here](https://github.com/wanderer/ethereum-node-lib/wiki/API-transaction) to see all the exciting things it can do.  Let me know if you have any questions or comments. You can contact me at `mjbecze@gmail.com` or by leaving a comment below. 
