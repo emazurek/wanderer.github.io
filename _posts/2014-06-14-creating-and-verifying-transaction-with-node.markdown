@@ -62,8 +62,8 @@ console.log("Total Amount of wei needed:" + tx.getTotalFee());
 this gives the amount in wei that the account needs to have. If your wondering how this is caculated it is   
 
  - data lenght in bytes * 5  
- - + 500 Default transaction fee  
- - + gasLimit * gasPrice   
+ - \+ 500 Default transaction fee  
+ - \+ gasLimit * gasPrice   
  
 Lets serialize the transaction
 
