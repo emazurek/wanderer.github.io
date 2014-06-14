@@ -13,9 +13,10 @@ In this article I'll be covering ethereum transaction creation and verifying tra
 
 First of all I recently pulled out all the core function of [node-ethereum](https://github.com/josephyzhou/node-ethereum), and some code from [ethereumjs-lib](https://github.com/ethereum/ethereumjs-lib) to create ~~Frankenstein~~ [ethereum-node-lib](https://github.com/wanderer/ethereum-node-lib). I haven't put it on npm yet as things are still to much in flux so you will have To install it directly from git `npm install git+https://github.com/wanderer/ethereum-node-lib`
 
-After that let create a new file and put the following in it. For the those how are cut and paste handicap here is the [full exmaple](https://github.com/wanderer/ethereum-node-lib/blob/master/examples/transactions.js).
+After that let create a new file and put the following in it. For the those how are cut and paste handicap here is the [full exmaple](https://github.com/wanderer/ethereum-node-lib/blob/master/examples/transactions.js).  
 
 ```javascript
+
 var Ethereum = require("ethereum-lib");
 var Transaction = Ethereum.Transaction;
 
