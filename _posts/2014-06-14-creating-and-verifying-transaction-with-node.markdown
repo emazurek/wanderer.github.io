@@ -10,12 +10,12 @@ comments: true
 
 In this article I'll be covering ethereum transaction creation and verifying transactions. First of all; whats the rational for creating transaction with with javascript? Well I, as always just want to explore and play around with ethereum. But I imagine this would be usefull in testing compilers and even more usefull, create contracts programmaticall. So lets get started! :D
 
-First of all I recently pulled out all the core function of [node-ethereum](https://github.com/josephyzhou/node-ethereum), and some code from [ethereumjs-lib](https://github.com/ethereum/ethereumjs-lib) to create <s>Frankenstein</s> [ethereum-node-lib](https://github.com/wanderer/ethereum-node-lib).
+First of all I recently pulled out all the core function of [node-ethereum](https://github.com/josephyzhou/node-ethereum), and some code from [ethereumjs-lib](https://github.com/ethereum/ethereumjs-lib) to create <s>Frankenstein</s> [ethereum-node-lib](https://github.com/wanderer/ethereum-node-lib) which we will be using in this post.
 
 ## Creating a transaction
-I haven't put this on npm yet as things are still to much in flux so you will have To install it directly from git `npm install git+https://github.com/wanderer/ethereum-node-lib`
+I haven't put this on npm yet as things are still to much in flux so you will have to install it directly from git `npm install git+https://github.com/wanderer/ethereum-node-lib`
 
-After that let create a new file and put the following in it. For the those how are cut and paste handicap here is the [full exmaple](https://github.com/wanderer/ethereum-node-lib/blob/master/examples/transactions.js).  
+After that let create a new file and put the following in it. For the those how are cut and paste handicap here is the [full Nexample](https://github.com/wanderer/ethereum-node-lib/blob/master/examples/transactions.js).  
 
 {% highlight javascript %} 
 var Ethereum = require("ethereum-lib");
@@ -44,7 +44,7 @@ tx.type === "contract"
 {% endhighlight %} 
 
 `value` is the is the amount you are sending and `data` is data that you are sending in this case it is initilzation code for a contract.
-The data is a Name Registrar contract. You can use one of the compilers to to generate the code. The two main ones are lllc wich is compiled with [cpp-ethereum](https://github.com/ethereum/cpp-ethereum) and [serpent](https://github.com/ethereum/serpent). Ok now we have a transaction with data now we need to sign it. To do this we will need a private key. There are several way to acquire one but for now we are just going to steal one from [AlethZero](https://github.com/ethereum/cpp-ethereum). That way I know that I'm create valid transaction that actually has the ether that this transaction is says that it has. If you have AlethZero running. You can select `tools>export selected key`, and the copy the private key out. Here is mine.
+The data is a Name Registrar contract. You can use one of the compilers to to generate the code. The two main ones are lllc wich is compiled with [cpp-ethereum](https://github.com/ethereum/cpp-ethereum) and [serpent](https://github.com/ethereum/serpent). Ok now we have a transaction with data. Now we need to sign it. To do this we will need a private key. There are several way to acquire one but for now we are just going to steal one from [AlethZero](https://github.com/ethereum/cpp-ethereum). That way I know that I'm create valid transaction that actually has the ether that this transaction is says that it has. If you have AlethZero running. You can select `tools>export selected key`, and the copy the private key out. Here is mine.
 
 ![exporting private key](https://i.imgur.com/N0S4q3l.png) 
 
@@ -59,7 +59,7 @@ Now we have a signed transaction, but for it to be valid, the account that we si
 console.log("Total Amount of wei needed:" + tx.getTotalFee());
 {% endhighlight %} 
 
-this gives the amount in wei that the account needs to have. If your wondering how this is caculated it is
+this gives the amount in wei that the account needs to have. If your wondering how this is caculated it is   
  - data lenght in bytes * 5  
  - + 500 Default transaction fee  
  - + gasLimit * gasPrice   
@@ -95,13 +95,13 @@ var rawTx =  [
 var tx = new Transaction(rawTx);
 {% endhighlight %} 
 
-Note: rlp.decode will actully produce an array of buffers `new Transaction` will take either and array of buffers or and array of hex strings. So assuming that you were able to parse the transaction, we will now get the sender's address
+Note: `rlp.decode` will actully produce an array of buffers `new Transaction` will take either and array of buffers or and array of hex strings. So assuming that you were able to parse the transaction, we will now get the sender's address
 
 {% highlight javascript %} 
 console.log("Senders Address" + tx.getSenderAddress());
 {% endhighlight %} 
 
-Cool now we know who sent the tx! Lets verfy the signature to make sure it not some poser.
+Cool now we know who sent the tx! Lets verify the signature to make sure it not some poser.
 
 {% highlight javascript %} 
 if(tx.verifySignature()){
@@ -111,4 +111,4 @@ if(tx.verifySignature()){
 
 And hopefull its verified. For the transaction to be total valid we would also need to check the account of the sender and see if they have at least `tx.totalFee()`. 
 
-And that is all foor now I hope you have enjoyed the read. Let me know if you have any question. You can email me `mjbecze@gmail.com` or leave a comment below. 
+And that is all for now I hope you have enjoyed the read. Let me know if you have any question. You can contact me at `mjbecze@gmail.com` or by leaving a comment below. 
