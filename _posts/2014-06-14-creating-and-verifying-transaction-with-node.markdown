@@ -15,7 +15,7 @@ First of all I recently pulled out all the core function of [node-ethereum](http
 ## Creating a transaction
 I haven't put this on npm yet as things are still to much in flux so you will have to install it directly from git `npm install git+https://github.com/wanderer/ethereum-node-lib`
 
-After that let create a new file and put the following in it. For the those how are cut and paste handicap here is the [full Nexample](https://github.com/wanderer/ethereum-node-lib/blob/master/examples/transactions.js).  
+After that let create a new file and put the following in it. For the those how are cut and paste handicap here is the [full example](https://github.com/wanderer/ethereum-node-lib/blob/master/examples/transactions.js).  
 
 {% highlight javascript %} 
 var Ethereum = require("ethereum-lib");
