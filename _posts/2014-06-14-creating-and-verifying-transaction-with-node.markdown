@@ -41,8 +41,8 @@ tx.type === "contract"
 //type updates every time you change tx.to
 {% endhighlight %} 
 
-`value` is the is the amount you are sending and `data` is data that you are sending in this case it is initilzation code for a contract.
-The data is a Name Registrar contract. You can use one of the compilers to to generate the code. The two main ones are lllc wich is compiled with [cpp-ethereum](https://github.com/ethereum/cpp-ethereum) and [serpent](https://github.com/ethereum/serpent). Ok now we have a transaction with data. Now we need to sign it. To do this we will need a private key. There are several way to acquire one but for now we are just going to steal one from [AlethZero](https://github.com/ethereum/cpp-ethereum). That way I know that I'm create valid transaction that actually has the ether that this transaction is says that it has. If you have AlethZero running. You can select `tools>export selected key`, and the copy the private key out. Here is mine.
+`value` is the is the amount you are sending and `data` is data that you are sending in this case it is initialization code for a contract.
+The data is a Name Registrar contract. You can use one of the compilers to generate the code. The two main ones are lllc which is compiled with [cpp-ethereum](https://github.com/ethereum/cpp-ethereum) and [serpent](https://github.com/ethereum/serpent). Ok now we have a transaction with data. Now we need to sign it. To do this we will need a private key. There are several way to acquire one but for now we are just going to steal one from [AlethZero](https://github.com/ethereum/cpp-ethereum). That way I know that I'm create valid transaction that actually has the ether that this transaction is says that it has. If you have AlethZero running. You can select `tools>export selected key`, and the copy the private key out. Here is mine.
 
 ![exporting private key](https://i.imgur.com/N0S4q3l.png) 
 
