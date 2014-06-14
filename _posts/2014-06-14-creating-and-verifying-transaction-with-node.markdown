@@ -15,7 +15,7 @@ First of all I recently pulled out all the core function of [node-ethereum](http
 
 After that let create a new file and put the following in it. For the those how are cut and paste handicap here is the [full exmaple](https://github.com/wanderer/ethereum-node-lib/blob/master/examples/transactions.js).
 
-```
+```javascript
 var Ethereum = require("ethereum-lib");
 var Transaction = Ethereum.Transaction;
 
