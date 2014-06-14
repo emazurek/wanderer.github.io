@@ -14,7 +14,7 @@ First of all I recently pulled out all the core function of [node-ethereum](http
 
 After that let create a new file and put the following in it. For the those how are cut and paste handicap here is the [full exmaple](https://github.com/wanderer/ethereum-node-lib/blob/master/examples/transactions.js).  
 
-```
+{% highlight javascript %} 
 var Ethereum = require("ethereum-lib");
 var Transaction = Ethereum.Transaction;
 
@@ -31,7 +31,7 @@ tx.gasLimit = 1000;
 tx.to = 0;
 tx.value = 0;
 tx.data = "7f4e616d65526567000000000000000000000000000000000000000000000000003057307f4e616d6552656700000000000000000000000000000000000000000000000000573360455760415160566000396000f20036602259604556330e0f600f5933ff33560f601e5960003356576000335700604158600035560f602b590033560f60365960003356573360003557600035335700";
-```
+{% endhighlight %} 
 
 hopefull this is pretty self explainitory. nonce is the number of transaction that the sending acount has sent. gasPrice is the amount you are will to pay for gas gasAmount if the amount of gas you are will to spend value is the is the amount you are sending and data is well data. the data is the Name Registrar contract. You can use one of the compilers to to generate that. The two main ones seem to be lllc wich is part of cpp-ethereum and serptant. Ok now we have a transaction with data, now we need to sign it. To do this we will need a privat key. There are mutilpe way to aquire one but for now we are just going to steal one from ethereum-cpp that has a few ether in it. That way I know that I'm create valid transaction that actully has the ether that this transaction is saying that it has. If you have althazero running. You can select tools>export select key, and the copy the private key out. Here is mine.
 
