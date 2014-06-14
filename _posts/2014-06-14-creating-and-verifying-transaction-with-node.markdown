@@ -28,6 +28,20 @@ hopefull this is pretty self explainitory. nonce is the number of transaction th
 ```
 var privateKey = new Buffer("e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109");
 tx.sign(privateKey);
+
+//create a blank transaction
+var tx = new Transaction();
+
+
+// So now we have created a blank transaction but Its not quiet valid yet. We
+// need to add some things to it. Lets start with 
+
+tx.nonce = 0;
+tx.gasPrice = 100;
+tx.gasLimit = 1000;
+tx.to = 0;
+tx.value = 0;
+tx.data = "7f4e616d65526567000000000000000000000000000000000000000000000000003057307f4e616d6552656700000000000000000000000000000000000000000000000000573360455760415160566000396000f20036602259604556330e0f600f5933ff33560f601e5960003356576000335700604158600035560f602b590033560f60365960003356573360003557600035335700";
 ```
 
 We have a signed transaction, Now for it to be total the account that we signed it with needs to have a certain amount of wei in to. To see how much that this account needs we can use the getTotalFee
