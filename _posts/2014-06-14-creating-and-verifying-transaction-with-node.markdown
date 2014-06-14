@@ -1,3 +1,12 @@
+---
+layout: post
+title:  "Creating Ethereum contracts and verifying messages with node.js"
+date:   2014-06-14 23:39:25
+categories: ethereum
+comments: true
+---
+
+
 # Creating Ethereum contracts and verifying messages with node.js
 
 In this article I'll be covering ethereum transaction creation and verifying transactions. First of all; whats the rational for creating transaction with with javascript? Well I, as always just want to explore and play around with ethereum. But I imagine this would be usefull in testing compilers and even more usefull, create contracts programmaticall. So lets get started! :D
