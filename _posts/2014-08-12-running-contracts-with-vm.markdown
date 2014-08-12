@@ -77,7 +77,7 @@ var rawTx = ['00',
 ];
 {% endhighlight %}
 
-Since running a transaction in the VM is asynchronous lets wrap this in a function which we will use later. Running this transaction should create a new name register contract
+Since running a transaction in the VM is asynchronous lets wrap this in a function which we will use later. Running this transaction should create a new name register contract. It is important to note that `vm.runTx()` would also need a `Block` a the second parameter if the EVM code where to use any opcodes that accessed the block propeties. 
 
 {% highlight javascript %}
 //runs a transaction through the vm
@@ -225,4 +225,7 @@ vm.onStep = function (info, done) {
 };
 {% endhighlight %}
 
-Now when you run you should see a complete trace. `onStep` provides an object that contians all the information on the current state of the `VM`. And now I'm out of stuff to say.
+Now when you run you should see a complete trace. `onStep` provides an object that contians all the information on the current state of the `VM`. 
+
+the `vm` also provides a `runBlock` function that will process a `block` as well as a few other usefull functions.
+And now I'm out of stuff to say.
