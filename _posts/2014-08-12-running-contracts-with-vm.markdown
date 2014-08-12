@@ -15,7 +15,7 @@ where Υ is the Ethereum state transition function. In ☰thereum, Υ, together 
 
 At the core of Etheruem is the state transition function.  Within the this function lies the ☰thereum ∇irtual Machine which upon ☰∇M code runs. In this post we will be running transactions thourgh the VM and looking at the results. A note on Terminology: the VM as descibed in the yellow paper is a subset of the state transition function. With an executioner that manipulates accounts and sets up the enviorment for the VM. Here we will just refer to the state transition function as the VM although this may not be techicanally correct. I did not like having executioner in my code. It's a bit to barbaric for my taste.  Altogether the VM in the sense handles all changes done to the state, which wholly resided in a trie.
 
-This post will explore creating transaction and processing them with the VM. You can find all the code for this post [here](https://github.com/wanderer/ethereum-lib-node/blob/master/examples/vm.js);
+This post will explore creating transactions and processing them with the VM. You can find all the code for this post [here](https://github.com/wanderer/ethereum-lib-node/blob/master/examples/vm.js);
 
 ## Running Contracts
 To get stated we will be using two libraries. `async` and [`ethereum-lib`](https://github.com/wanderer/ethereum-lib-node)    
