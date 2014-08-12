@@ -10,7 +10,7 @@ comments: true
 <blockquote>
 A valid state transition is one which comes about through a transaction. Formally:
 σ<sub>t+1</sub> ≡ Υ(σ<sub>t</sub> , T )
-where Υ is the Ethereum state transition function. In ☰thereum, Υ, together with σ are <b>considerably more powerful then any existing comparable system;</b> Υ allows components to carry out arbitrary computation, while σ allows components to store arbitrary state between transactions.
+where Υ is the Ethereum state transition function. In ☰thereum, Υ, together with σ are <b>considerably more powerful then any existing comparable system;</b> Υ allows components to carry out arbitrary computation, while σ allows components to store arbitrary state between transactions. - The Yellow Paper
 </blockquote>
 
 At the core of Etheruem is the state transition function.  Within the this function lies the ☰thereum ∇irtual Machine which upon ☰∇M code runs. In this post we will be running transactions thourgh the VM and looking at the results. A note on Terminology: the VM as descibed in the yellow paper is a subset of the state transition function. With an executioner that manipulates accounts and sets up the enviorment for the VM. Here we will just refer to the state transition function as the VM although this may not be techicanally correct. I did not like having executioner in my code. It's a bit to barbaric for my taste.  Altogether the VM in the sense handles all changes done to the state, which wholly resided in a trie.
@@ -97,7 +97,7 @@ function runTx(raw, cb) {
 }
 {% endhighlight %}
 
-`vm.runTx` 1) checks if the sending `account` has enough wie to run then 2) runs the code and lastly 3) saves the changed accounts in the  trie. It uses a callback to returns the results of running the transaction. We are only going to log some of the results here but if you are curious george you can look at the (docs)[https://github.com/wanderer/ethereum-lib-node/blob/master/docs/VM.md#vmruntxtx-block-cb]
+`vm.runTx` 1) checks if the sending `account` has enough wie to run then 2) runs the code and lastly 3) saves the changed accounts in the  trie. It uses a callback to returns the results of running the transaction. We are only going to log some of the results here but if you are curious george you can look at the [docs](https://github.com/wanderer/ethereum-lib-node/blob/master/docs/VM.md#vmruntxtx-block-cb)
 
 Now lets actully run this!
 
