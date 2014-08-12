@@ -54,7 +54,7 @@ tx.sign(privateKey);
 Now we have a signed transaction, but for it to be valid, the account that we signed it with needs to have a certain amount of wei in to. To see how much that this account needs we can use  `tx.getTotalFee`
 
 {% highlight javascript %} 
-console.log("Total Amount of wei needed:" + tx.getTotalFee());
+console.log("Total Amount of wei needed:" + tx.getUpFrontCost());
 {% endhighlight %} 
 
 this gives the amount in wei that the account needs to have. If your wondering how this is caculated it is   
@@ -108,6 +108,6 @@ if(tx.verifySignature()){
 }
 {% endhighlight %} 
 
-And hopefull its verified. For the transaction to be total valid we would also need to check the account of the sender and see if they have at least `tx.getWeiNeeded()`. 
+And hopefull its verified. For the transaction to be total valid we would also need to check the account of the sender and see if they have at least `tx.getUpFrontCost()`. 
 
 And that is all for now I hope you have enjoyed the read. You can view the documentation for transaction [here](https://github.com/wanderer/ethereum-node-lib/wiki/API-transaction) to see all the exciting things it can do.  Let me know if you have any questions or comments. You can contact me at `mjbecze@gmail.com` or by leaving a comment below. 
