@@ -43,7 +43,7 @@ var vm = new VM(stateTrie);
 var storageRoot;
 {% endhighlight %}
 
-Lets set up the state trie. We need to give the account which is sending the transaction enougth wei to send transaction and run the code.
+Lets set up the state trie. We need to give the sender's account enougth wei to send the transaction and run the code.
 
 {% highlight javascript %}
 //sets up the initial state and runs  the callback when complete
