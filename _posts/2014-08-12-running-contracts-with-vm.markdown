@@ -8,8 +8,8 @@ comments: true
 
 <img src="https://i.imgur.com/8jug5Cc.jpg"/>
 > A valid state transition is one which comes about through a transaction. Formally:
-> σ<sub>t</sub>t ≡ Υ(σ<sub>t</sub> , T )
-> where Υ is the Ethereum state transition function. In ☰thereum, Υ, together with σ are considerably more powerful then any existing comparable system; Υ allows components to carry out arbitrary computation, while σ allows components to store arbitrary state between transactions.
+> σ<sub>t+1</sub> ≡ Υ(σ<sub>t</sub> , T )
+> where Υ is the Ethereum state transition function. In ☰thereum, Υ, together with σ are <b>considerably more powerful then any existing comparable system;</b> Υ allows components to carry out arbitrary computation, while σ allows components to store arbitrary state between transactions.
 
 
 At the core of Etheruem is the state transition function.  Within the this function lies the ☰thereum ∇irtual Machine which upon ☰∇M code runs. In this post we will be running transactions thourgh the VM and looking at the results. A note on Terminology: the VM as descibed in the yellow paper is a subset of the state transition function. With an executioner that manipulates accounts and sets up the enviorment for the VM. Here we will just refer to the state transition function as the VM although this may not be techicanally correct. I did not like having executioner in my code. It's a bit to barbaric for my taste.  Altogether the VM in the sense handles all changes done to the state, which wholly resided in a trie.
