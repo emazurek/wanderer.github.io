@@ -51,7 +51,7 @@ var privateKey = new Buffer("e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcff
 tx.sign(privateKey);
 {% endhighlight %} 
 
-Now we have a signed transaction, but for it to be valid, the account that we signed it with needs to have a certain amount of wei in to. To see how much that this account needs we can use  `tx.getTotalFee`
+Now we have a signed transaction, but for it to be valid, the account that we signed it with needs to have a certain amount of wei in to. To see how much that this account needs we can use  `tx.getUpFrontCost`
 
 {% highlight javascript %} 
 console.log("Total Amount of wei needed:" + tx.getUpFrontCost());
