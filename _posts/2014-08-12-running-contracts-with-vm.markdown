@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to run contracts and creating stack traces with Node.js"
+title:  "How to run contracts and create stack traces with Node.js"
 date:   2014-08-12 00:00:00
 categories: ethereum nodejs code
 comments: true
