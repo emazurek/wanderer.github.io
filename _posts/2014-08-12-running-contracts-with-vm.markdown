@@ -1,23 +1,24 @@
 ---
 layout: post
 title:  "How to run contracts and creating stack traces with Node.js"
-date:   2014-05-21 00:00:00
+date:   2014-08-12 00:00:00
 categories: ethereum nodejs code
 comments: true
 ---
 
 <img src="https://i.imgur.com/8jug5Cc.jpg"/>
-> A valid state transition is one which comes about through a transaction. Formally:
-> σ<sub>t+1</sub> ≡ Υ(σ<sub>t</sub> , T )
-> where Υ is the Ethereum state transition function. In ☰thereum, Υ, together with σ are <b>considerably more powerful then any existing comparable system;</b> Υ allows components to carry out arbitrary computation, while σ allows components to store arbitrary state between transactions.
-
+<blockquote>
+A valid state transition is one which comes about through a transaction. Formally:
+σ<sub>t+1</sub> ≡ Υ(σ<sub>t</sub> , T )
+where Υ is the Ethereum state transition function. In ☰thereum, Υ, together with σ are <b>considerably more powerful then any existing comparable system;</b> Υ allows components to carry out arbitrary computation, while σ allows components to store arbitrary state between transactions.
+</blockquote>
 
 At the core of Etheruem is the state transition function.  Within the this function lies the ☰thereum ∇irtual Machine which upon ☰∇M code runs. In this post we will be running transactions thourgh the VM and looking at the results. A note on Terminology: the VM as descibed in the yellow paper is a subset of the state transition function. With an executioner that manipulates accounts and sets up the enviorment for the VM. Here we will just refer to the state transition function as the VM although this may not be techicanally correct. I did not like having executioner in my code. It's a bit to barbaric for my taste.  Altogether the VM in the sense handles all changes done to the state, which wholly resided in a trie.
 
 This post will explore creating transaction and processing them with the VM. You can find all the code for this post [here](https://github.com/wanderer/ethereum-lib-node/blob/master/examples/vm.js);
 
-# Running Contracts
-To get stated we will be using two libraries. `async` and [`ethereum-lib`](https://github.com/wanderer/ethereum-lib-node)
+## Running Contracts
+To get stated we will be using two libraries. `async` and [`ethereum-lib`](https://github.com/wanderer/ethereum-lib-node)    
 `npm install async`  
 `npm install ethereum-lib`  
 
@@ -204,7 +205,7 @@ async.series([
 
 After running you should see the contents of the contract's storage.
 
-# Debugging
+## Debugging with traces
 Lastly lets create a trace of the EMV code. This can be very usefully for debugging (and deherbing, don't smoke and code m'kay?) contracts.
 
 The VM provides a simple hook for each step the VM takes while running EVM code.
