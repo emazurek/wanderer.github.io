@@ -8,7 +8,7 @@ comments: true
 
 <img src="https://i.imgur.com/8jug5Cc.jpg"/>
 > A valid state transition is one which comes about through a transaction. Formally:
-> σ<sub>t<sub>+1 ≡ Υ(σ<sub>t<sub> , T )
+> σ<sub>t</sub>t ≡ Υ(σ<sub>t</sub> , T )
 > where Υ is the Ethereum state transition function. In ☰thereum, Υ, together with σ are considerably more powerful then any existing comparable system; Υ allows components to carry out arbitrary computation, while σ allows components to store arbitrary state between transactions.
 
 
