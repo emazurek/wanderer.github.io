@@ -97,7 +97,7 @@ function runTx(raw, cb) {
 }
 {% endhighlight %}
 
-`vm.runTx` 1) checks if the sending `account` has enough wie to run then 2) runs the code and lastly 3) saves the changed accounts in the  trie. It uses a callback to returns the results of running the transaction. We are only going to log some of the results here but if you are curious george you can look at the [docs](https://github.com/wanderer/ethereum-lib-node/blob/master/docs/VM.md#vmruntxtx-block-cb)
+`vm.runTx` 1) checks if the sending `account` has enough wei to run then 2) runs the code and lastly 3) saves the changed accounts in the  trie. It uses a callback to returns the results of running the transaction. We are only going to log some of the results here but if you are curious george you can look at the [docs](https://github.com/wanderer/ethereum-lib-node/blob/master/docs/VM.md#vmruntxtx-block-cb)
 
 Now lets actully run this!
 
