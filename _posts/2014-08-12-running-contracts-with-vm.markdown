@@ -18,7 +18,7 @@ At the core of Etheruem is the state transition function.  Within the this funct
 This post will explore creating transactions and processing them with the VM. You can find all the code for this post [here](https://github.com/ethereum/ethereumjs-lib/blob/master/examples/vm.js);
 
 ## Running Contracts
-To get stated we will be using two libraries. `async` and [`ethereum-lib`](https://github.com/wanderer/ethereum-lib-node)    
+To get stated we will be using two libraries. `async` and [`ethereum-lib`](https://github.com/ethereum/ethereumjs-lib)    
 `npm install async`  
 `npm install ethereum-lib`  
 
