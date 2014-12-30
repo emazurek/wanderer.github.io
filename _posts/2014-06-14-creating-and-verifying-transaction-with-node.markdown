@@ -8,12 +8,11 @@ comments: true
 
 In this article I'll be covering ethereum transaction creation and verifying transactions. First of all; whats the rational for creating transaction with with javascript? Well I, as always just want to explore and play around with ethereum. But I imagine this would be usefull in testing compilers and even more usefull, create contracts programmatically. So lets get started! :D
 
-First of all I recently pulled out all the core function of [node-ethereum](https://github.com/josephyzhou/node-ethereum), and some code from [ethereumjs-lib](https://github.com/ethereum/ethereumjs-lib) to create <s>Frankenstein</s> [ethereum-node-lib](https://github.com/wanderer/ethereum-node-lib) which we will be using in this post.
+First of all we will be using [ethereumjs-lib](https://github.com/ethereum/ethereumjs-lib) in this post. You can install it from npm `npm install ethereumjs-lib` or directly from git `npm install git+https://github.com/ethereum/ethereumjs-lib`
 
 ## Creating a transaction
-I haven't put this on npm yet as things are still to much in flux so you will have to install it directly from git `npm install git+https://github.com/wanderer/ethereum-node-lib`
 
-After that let create a new file and put the following in it. For the those how are cut and paste handicap here is the [full example](https://github.com/wanderer/ethereum-node-lib/blob/master/examples/transactions.js).  
+After that let create a new file and put the following in it. For the those how are cut and paste handicap here is the [full example](https://github.com/ethereum/ethereumjs-lib/blob/master/examples/transactions.js).  
 
 {% highlight javascript %} 
 var Ethereum = require("ethereum-lib");
@@ -110,4 +109,4 @@ if(tx.verifySignature()){
 
 And hopefull its verified. For the transaction to be total valid we would also need to check the account of the sender and see if they have at least `tx.getUpFrontCost()`. 
 
-And that is all for now I hope you have enjoyed the read. You can view the documentation for transaction [here](https://github.com/wanderer/ethereum-node-lib/wiki/API-transaction) to see all the exciting things it can do.  Let me know if you have any questions or comments. You can contact me at `mjbecze@gmail.com` or by leaving a comment below. 
+And that is all for now I hope you have enjoyed the read. You can view the documentation for transaction [here](https://github.com/ethereum/ethereumjs-lib/blob/master/docs/transaction.md) to see all the exciting things it can do.  Let me know if you have any questions or comments.
