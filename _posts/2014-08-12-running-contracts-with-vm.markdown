@@ -45,7 +45,7 @@ var storageRoot;
 
 //the private/public key pare. used to sign the transactions and generate the addresses
 var secretKey = '3cd7232cd6f3fc66a57a6bedc1a8ed6c228fff0a327e169c2bcc5e869ed49511';
-var pubicKey = '0406cc661590d48ee972944b35ad13ff03c7876eae3fd191e8a2f77311b0a3c6613407b5005e63d7d8d76b89d5f900cde691497688bb281e07a5052ff61edebdc0';
+var publicKey = '0406cc661590d48ee972944b35ad13ff03c7876eae3fd191e8a2f77311b0a3c6613407b5005e63d7d8d76b89d5f900cde691497688bb281e07a5052ff61edebdc0';
 
 {% endhighlight %}
 
@@ -55,7 +55,7 @@ Lets set up the state trie. We need to give the sender's account enougth wei to 
 //sets up the initial state and runs  the callback when complete
 function setup(cb) {
   //the address we are sending from
-  var address = utils.pubToAddress(new Buffer(pubicKey, 'hex'));
+  var address = utils.pubToAddress(new Buffer(publicKey, 'hex'));
 
   //create a new account
   var account = new Account();
