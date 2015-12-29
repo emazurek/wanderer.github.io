@@ -20,7 +20,6 @@ To give you a better idea here is a textual representation of an AST using [s-ex
       (i64.const 1)
       (i64.mul (get_local $i) (call $factorial (i64.sub (get_local $i) (i64.const 1))))))
 ```
-
 Which could also be displayed like
 
 ![AST example](https://cdn.rawgit.com/wanderer/wanderer.github.io/master/_posts/images/Merklizing%20ASTs.svg)
@@ -52,7 +51,7 @@ In addition to the Slim Binaries paper here are some more papers if you are inte
 ## Merkle ASTs
 So another fun thing to do with AST is to merklize them. To review; a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) is just a tree which links its nodes together by using the cryptographic hashes of the nodes.  
 
-![a merkle tree](https://upload.wikimedia.org/wikipedia/commons/9/95/Hash_Tree.svg)
+![a merkle tree](https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hash_Tree.svg/640px-Hash_Tree.svg.png)
 
 The result is one root hash that points to the root node. This allows for efficient and secure verification of the contents of large data structures.  To turn a AST into Merkle AST all you have walk from the leaf nodes up to the root hashing each node along the path. 
 
