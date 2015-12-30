@@ -13,13 +13,13 @@ So how does this AST look like?
 
 To give you a better idea here is a textual representation of an AST using [s-expressions](https://en.wikipedia.org/wiki/S-expression).
 
-```
+{% highlight lisp  %}
   ;; Recursive factorial
   (func $factorial (param $i i64) (result i64)
     (if_else (i64.eq (get_local $i) (i64.const 0))
       (i64.const 1)
       (i64.mul (get_local $i) (call $factorial (i64.sub (get_local $i) (i64.const 1))))))
-```
+{% endhighlight %}
 Which could also be displayed like
 
 ![AST example](https://cdn.rawgit.com/wanderer/wanderer.github.io/dea025059e91802d62005f16e8c49ced234e5783/_posts/images/Merklizing%20ASTs.svg)  
