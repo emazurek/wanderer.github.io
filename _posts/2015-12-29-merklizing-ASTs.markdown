@@ -7,12 +7,12 @@ comments: true
 ---
 *Special thanks to [Jaun Benet](http://juan.benet.ai/) for mentioning this idea at Devcon 1.*
 
-Recently I wrote a draft of [EIP 105](https://github.com/ethereum/EIPs/issues/48) which propose using a subset of Webassemble as Ethereum’s VM. If you aren’t aware Webassemble  “is a new, portable, size- and load-time-efficient format suitable for compilation to the web.” One interesting note about Webassembly doesn’t compile to linear byte code. Instead it uses an  [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree). This might not surprise you if you have an experience with LLVM IR. But for me it was a new concept to have bytecode in this form. 
+Recently I wrote a draft of [EIP 105](https://github.com/ethereum/EIPs/issues/48) which propose using a subset of webassembly as Ethereum’s VM. If you aren’t aware webassembly  “is a new, portable, size- and load-time-efficient format suitable for compilation to the web.” One interesting note about Webassembly doesn’t compile to linear byte code. Instead it uses an  [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree). This might not surprise you if you have an experience with LLVM IR. But for me it was a new concept to have bytecode in this form. 
 
 ## What is an AST?
 It is just a tree repesentation of some code. Each node of the AST represents an expression. Each function body consists of exactly one expression. Compared to the source code, an AST does not include certain elements, such as inessential punctuation and delimiters (braces, semicolons, parentheses, etc.).
 
-To give you a better idea here is a textual representation of some Webassmble code using [s-expressions](https://en.wikipedia.org/wiki/S-expression).
+To give you a better idea here is a textual representation of some webassembly code using [s-expressions](https://en.wikipedia.org/wiki/S-expression).
 
 {% highlight lisp  %}
   ;; Recursive factorial
