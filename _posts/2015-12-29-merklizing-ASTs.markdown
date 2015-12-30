@@ -68,7 +68,7 @@ In figure 3 the green blocks represent subroutines that are in a single node. No
 
 ## Why Merkle ASTs?
 
-Other reason is secure code. It would make DLL hijack impossible. Of course how would use DLL’s would probably be quite a bit different. Instead of open a dynamic link by a name you would reference the root hash of the routine you wanted to use. This way you have 100% confidence that you're getting the code that you want.
+One reason is code security. It would make DLL hijack impossible. Of course how would use DLL’s would probably be quite a bit different. Instead of open a dynamic link by a name you would reference the root hash of the routine you wanted to use. This way you have 100% confidence that you're getting the code that you want.
 
 Have you ever had a software problem that you googled and found that 100s of forum posts with the same problem as you but none of their solutions worked for you? This is maybe in part caused by the fact you computer is in a different configuration or ‘state’ then thiers. If we had secure merklized code this would a lot less common since the state of any given piece of software could be immediately determined or set by the root hash.
 
