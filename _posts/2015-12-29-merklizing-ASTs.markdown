@@ -1,17 +1,18 @@
 ---
 layout: post
 title:  "Merklizing ASTs"
-date:   2015-12-29 13:22:09  - Special thanks to Jaun Benet for mentioning this idea to me at Devcon 1
+date:   2015-12-29 13:22:09  
 categories: ethereum ast webassembly
 comments: true
 ---
-Special thanks to [Jaun Benet](http://juan.benet.ai/) for mentioning this idea to me at Devcon 1. I recently wrote a draft of [EIP 105](https://github.com/ethereum/EIPs/issues/48) which propose using a subset of Webassemble as Ethereum’s VM. If you aren’t aware Webassemble  “is a new, portable, size- and load-time-efficient format suitable for compilation to the web.”   One interesting note about Webassemble doesn’t compile to linear byte code. Instead it uses an  [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree). This might not surprise you if you have an experience with LLVM IR. But for me it was a new concept. 
+*Special thanks to [Jaun Benet](http://juan.benet.ai/) for mentioning this idea to me at Devcon 1.*
 
-So how does this AST look like?
+Recently I wrote a draft of [EIP 105](https://github.com/ethereum/EIPs/issues/48) which propose using a subset of Webassemble as Ethereum’s VM. If you aren’t aware Webassemble  “is a new, portable, size- and load-time-efficient format suitable for compilation to the web.” One interesting note about Webassemble doesn’t compile to linear byte code. Instead it uses an  [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree). This might not surprise you if you have an experience with LLVM IR. But for me it was a new concept. 
 
->Each node [of the AST] represents an expression. Each function body consists of exactly one expression. All expressions and operators are typed, with no implicit conversions or overloading rules.
+## What is an AST?
+It is just a tree repesentation of some code. Each node of the AST represents an expression. Each function body consists of exactly one expression. Compared to the source code, an AST does not include certain elements, such as inessential punctuation and delimiters (braces, semicolons, parentheses, etc.).
 
-To give you a better idea here is a textual representation of an AST using [s-expressions](https://en.wikipedia.org/wiki/S-expression).
+To give you a better idea here is a textual representation of some Webassmble code using [s-expressions](https://en.wikipedia.org/wiki/S-expression).
 
 {% highlight lisp  %}
   ;; Recursive factorial
@@ -20,17 +21,17 @@ To give you a better idea here is a textual representation of an AST using [s-ex
       (i64.const 1)
       (i64.mul (get_local $i) (call $factorial (i64.sub (get_local $i) (i64.const 1))))))
 {% endhighlight %}
-Which could also be displayed like
+
+The AST of the above could be displayed like
 
 ![AST example](https://cdn.rawgit.com/wanderer/wanderer.github.io/dea025059e91802d62005f16e8c49ced234e5783/_posts/images/Merklizing%20ASTs.svg)  
 figure 1 - an AST
 
 This can then be [serialized](https://github.com/WebAssembly/design/blob/master/BinaryEncoding.md#serialized-ast) and sent across the wire.
 
-## Why AST?
+## Why use an AST?
 Well the [rationale that Webassemble](https://github.com/WebAssembly/design/blob/master/Rationale.md) gives is 
 
->Why not a stack-, register- or SSA-based bytecode?
 * Trees allow a smaller binary encoding: [JSZap][], [Slim Binaries][].
 * [Polyfill prototype][] shows simple and efficient translation to asm.js.
 
@@ -45,8 +46,8 @@ Some auxiliary reason might be:
 The idea has a bit of an interesting history. It appears that [Michael Franz](http://www.michaelfranz.com/) first used the idea to compress java bytecode in a paper on Slim Binaries. The slim binaries were also implemented in the [Oberon OS](https://en.wikipedia.org/wiki/Oberon_(operating_system))
 
 In addition to the Slim Binaries paper here are some more papers if you are interested in the subject.
-* Adaptive Compression of Syntax Trees andIterative Dynamic Code Optimization:Two Basic Technologies for Mobile-Object Systems ftp://ftp.cis.upenn.edu/pub/cis700/public_html/papers/Franz97b.pdf
-* A Tree-Based Alternative to Java Byte-Codes ftp://ftp.cis.upenn.edu/pub/cis700/public_html/papers/Kistler96.pdf
+* [Adaptive Compression of Syntax Trees andIterative Dynamic Code Optimization:Two Basic Technologies for Mobile-Object Systems](ftp://ftp.cis.upenn.edu/pub/cis700/public_html/papers/Franz97b.pdf)
+* [A Tree-Based Alternative to Java Byte-Codes](ftp://ftp.cis.upenn.edu/pub/cis700/public_html/papers/Kistler96.pdf)
 
 ## Merkle ASTs
 So another fun thing to do with AST is to merklize them. To review; a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) is just a tree which links its nodes together by using the cryptographic hashes of the nodes.  
