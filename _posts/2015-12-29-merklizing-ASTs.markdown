@@ -7,7 +7,7 @@ comments: true
 ---
 *Special thanks to [Jaun Benet](http://juan.benet.ai/) for mentioning this idea at Devcon 1.*
 
-Recently I wrote a draft of [EIP 105](https://github.com/ethereum/EIPs/issues/48) which propose using a subset of Webassemble as Ethereum’s VM. If you aren’t aware Webassemble  “is a new, portable, size- and load-time-efficient format suitable for compilation to the web.” One interesting note about Webassemble doesn’t compile to linear byte code. Instead it uses an  [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree). This might not surprise you if you have an experience with LLVM IR. But for me it was a new concept. 
+Recently I wrote a draft of [EIP 105](https://github.com/ethereum/EIPs/issues/48) which propose using a subset of Webassemble as Ethereum’s VM. If you aren’t aware Webassemble  “is a new, portable, size- and load-time-efficient format suitable for compilation to the web.” One interesting note about Webassemble doesn’t compile to linear byte code. Instead it uses an  [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree). This might not surprise you if you have an experience with LLVM IR. But for me it was a new concept to bytecode in this form. 
 
 ## What is an AST?
 It is just a tree repesentation of some code. Each node of the AST represents an expression. Each function body consists of exactly one expression. Compared to the source code, an AST does not include certain elements, such as inessential punctuation and delimiters (braces, semicolons, parentheses, etc.).
@@ -30,7 +30,7 @@ figure 1 - an AST
 This can then be [serialized](https://github.com/WebAssembly/design/blob/master/BinaryEncoding.md#serialized-ast) and sent across the wire.
 
 ## Why use an AST?
-Well the [rationale that Webassemble](https://github.com/WebAssembly/design/blob/master/Rationale.md) gives is 
+The [rationale that Webassemble](https://github.com/WebAssembly/design/blob/master/Rationale.md) gives is 
 
 * Trees allow a smaller binary encoding: [JSZap][], [Slim Binaries][].
 * [Polyfill prototype][] shows simple and efficient translation to asm.js.
@@ -40,17 +40,19 @@ Well the [rationale that Webassemble](https://github.com/WebAssembly/design/blob
   [Polyfill prototype]: https://github.com/WebAssembly/polyfill-prototype-1
 
 Some auxiliary reason might be:
+
 * Effective to JIT 
 * Code Deduplication
 
 The idea has a bit of an interesting history. It appears that [Michael Franz](http://www.michaelfranz.com/) first used the idea to compress java bytecode in a paper on Slim Binaries. The slim binaries were also implemented in the [Oberon OS](https://en.wikipedia.org/wiki/Oberon_(operating_system))
 
-In addition to the Slim Binaries paper here are some more papers if you are interested in the subject.
+In addition to the Slim Binaries paper here are some more papers if you are interested in the subject.  
+
 * [Adaptive Compression of Syntax Trees andIterative Dynamic Code Optimization:Two Basic Technologies for Mobile-Object Systems](ftp://ftp.cis.upenn.edu/pub/cis700/public_html/papers/Franz97b.pdf)
 * [A Tree-Based Alternative to Java Byte-Codes](ftp://ftp.cis.upenn.edu/pub/cis700/public_html/papers/Kistler96.pdf)
 
-## Merkle ASTs
-So another fun thing to do with AST is to merklize them. To review; a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) is just a tree which links its nodes together by using the cryptographic hashes of the nodes.  
+## Merklized ASTs
+So another fun thing to do with AST is to merklize them! To review; a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) is just a tree which links its nodes together by using the cryptographic hashes of the nodes.  
 
 ![a merkle tree](https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hash_Tree.svg/640px-Hash_Tree.svg.png)  
 
@@ -72,5 +74,5 @@ For one thing massive code duplication. How many version of the same library you
 
 Perhaps one the most convincing reason is bandwidth saving. 
 ![](https://cdn.rawgit.com/wanderer/wanderer.github.io/dea025059e91802d62005f16e8c49ced234e5783/_posts/images/Merklizing%20ASTs-bandwidth.svg)  
-Let's say you have you already have the green nodes since they are common subroutines. You would only have to download the orange nodes. Where this bandwidth saving could be very important is things like ethereum light clients but also for general computation. As Web Pages begin to more and more resemble apps the larger their code size becomes. In the age of ephemeral webapps repeat code is downloaded many times. How many times do you think you have downloaded jquery? Couple this with a peer-to-peer distribution method like [IPFS](https://ipfs.io/) and I think you have a very efficient system.
+Let's say you have you already have the green nodes since they are common subroutines. You would only have to download the orange nodes. Where this bandwidth saving could be very important is things like Ethereum light clients but also for general computation. As Web Pages begin to more and more resemble, apps the larger their code size becomes. In the age of ephemeral webapps repeat code is downloaded many times. How many times do you think you have downloaded jquery? Couple this with a peer-to-peer distribution method like [IPFS](https://ipfs.io/) and I think you have a very efficient system.
 
