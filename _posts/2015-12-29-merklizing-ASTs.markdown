@@ -51,14 +51,14 @@ In addition to the Slim Binaries paper here are some more papers if you are inte
 ## Merkle ASTs
 So another fun thing to do with AST is to merklize them. To review; a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) is just a tree which links its nodes together by using the cryptographic hashes of the nodes.  
 
-![a merkle tree](https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hash_Tree.svg/640px-Hash_Tree.svg.png)
+![a merkle tree](https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hash_Tree.svg/640px-Hash_Tree.svg.png)  
 
 The result is one root hash that points to the root node. This allows for efficient and secure verification of the contents of large data structures.  To turn a AST into Merkle AST all you have walk from the leaf nodes up to the root hashing each node along the path. 
 
 ## Efficiency 
 If you look at figure one you can count 19 nodes. This is a fairly small program and the number of nodes in a larger program can add up fast. The computation time needed to merklize larger AST might start to add up rather fast. One method to increase efficiency would be to store entire subroutines in a single node and only create merkle tree branches at the point where the AST has a branch condition. For example see figure 3.
 
-![](https://cdn.rawgit.com/wanderer/wanderer.github.io/dea025059e91802d62005f16e8c49ced234e5783/_posts/images/Merklizing%20ASTs-grouping.svg)
+![](https://cdn.rawgit.com/wanderer/wanderer.github.io/dea025059e91802d62005f16e8c49ced234e5783/_posts/images/Merklizing%20ASTs-grouping.svg)  
 figure 3 - nodes contain entire subroutines
 
 In figure 3 the green blocks represent subroutines that are in a single node. Note how the `if else` still forms a block by itself since it is a branch condition. This also provide an nice opportunity for parallelization. The interpreter or JIT can run the first branch while the next branch is still being fetched.  
@@ -70,6 +70,6 @@ Other reason is secure code. It would make DLL hijack impossible. Of course how 
 For one thing massive code duplication. How many version of the same library you have on your computer? Or how many time the same function and routine is duplicated through programs? I would assume quite a bit. 
 
 Perhaps one the most convincing reason is bandwidth saving. 
-![](https://cdn.rawgit.com/wanderer/wanderer.github.io/dea025059e91802d62005f16e8c49ced234e5783/_posts/images/Merklizing%20ASTs-bandwidth.svg)
+![](https://cdn.rawgit.com/wanderer/wanderer.github.io/dea025059e91802d62005f16e8c49ced234e5783/_posts/images/Merklizing%20ASTs-bandwidth.svg)  
 Let's say you have you already have the green nodes since they are common subroutines. You would only have to download the orange nodes. Where this bandwidth saving could be very important is things like ethereum light clients but also for general computation. As Web Pages begin to more and more resemble apps the larger their code size becomes. In the age of ephemeral webapps repeat code is downloaded many times. How many times do you think you have downloaded jquery? Couple this with a peer-to-peer distribution method like [IPFS](https://ipfs.io/) and I think you have a very efficient system.
 
