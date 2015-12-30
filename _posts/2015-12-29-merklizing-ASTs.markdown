@@ -22,7 +22,7 @@ To give you a better idea here is a textual representation of an AST using [s-ex
 ```
 Which could also be displayed like
 
-![AST example](https://cdn.rawgit.com/wanderer/wanderer.github.io/dea025059e91802d62005f16e8c49ced234e5783/_posts/images/Merklizing%20ASTs.svg)
+![AST example](https://cdn.rawgit.com/wanderer/wanderer.github.io/dea025059e91802d62005f16e8c49ced234e5783/_posts/images/Merklizing%20ASTs.svg)  
 figure 1 - an AST
 
 This can then be [serialized](https://github.com/WebAssembly/design/blob/master/BinaryEncoding.md#serialized-ast) and sent across the wire.
