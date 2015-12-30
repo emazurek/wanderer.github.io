@@ -30,7 +30,7 @@ figure 1 - an AST
 This can then be [serialized](https://github.com/WebAssembly/design/blob/master/BinaryEncoding.md#serialized-ast) and sent across the wire.
 
 ## Why use an AST?
-The [rationale that Webassemble](https://github.com/WebAssembly/design/blob/master/Rationale.md) gives is 
+The [rationale that webassembly](https://github.com/WebAssembly/design/blob/master/Rationale.md) gives is 
 
 * Trees allow a smaller binary encoding: [JSZap][], [Slim Binaries][].
 * [Polyfill prototype][] shows simple and efficient translation to asm.js.
