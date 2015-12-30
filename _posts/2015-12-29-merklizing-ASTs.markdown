@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Merklizing ASTs"
-date:   2015-12-29 13:22:09
+date:   2015-12-29 13:22:09  - Special thanks to Jaun Benet for mentioning this idea to me at Devcon 1
 categories: ethereum ast webassembly
 comments: true
 ---
