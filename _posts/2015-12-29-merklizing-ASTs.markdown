@@ -5,7 +5,7 @@ date:   2015-12-29 13:22:09
 categories: ethereum ast webassembly
 comments: true
 ---
-*Special thanks to [Jaun Benet](http://juan.benet.ai/) for mentioning this idea to me at Devcon 1.*
+*Special thanks to [Jaun Benet](http://juan.benet.ai/) for mentioning this idea at Devcon 1.*
 
 Recently I wrote a draft of [EIP 105](https://github.com/ethereum/EIPs/issues/48) which propose using a subset of Webassemble as Ethereum’s VM. If you aren’t aware Webassemble  “is a new, portable, size- and load-time-efficient format suitable for compilation to the web.” One interesting note about Webassemble doesn’t compile to linear byte code. Instead it uses an  [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree). This might not surprise you if you have an experience with LLVM IR. But for me it was a new concept. 
 
