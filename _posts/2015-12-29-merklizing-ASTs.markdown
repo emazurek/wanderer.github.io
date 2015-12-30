@@ -72,7 +72,9 @@ Other reason is secure code. It would make DLL hijack impossible. Of course how 
 
 Have you ever had a software problem that you googled and found that 100s of forum posts with the same problem as you but none of their solutions worked for you? This is maybe in part caused by the fact you computer is in a different configuration or ‘state’ then thiers. If we had secure merklized code this would a lot less common since the state of any given piece of software could be immediately determined or set by the root hash.
 
-Perhaps one the most convincing reason is bandwidth saving and massive code duplication. How many version of the same library you have on your computer? Or how many time the same function and routine is duplicated through programs? I would assume quite a bit. 
+Perhaps one the most convincing reason is bandwidth saving and massive code duplication. How many version of the same library you have on your computer? Or how many time the same function and routine is duplicated through programs? I would assume quite a bit.   
+
 ![](https://cdn.rawgit.com/wanderer/wanderer.github.io/dea025059e91802d62005f16e8c49ced234e5783/_posts/images/Merklizing%20ASTs-bandwidth.svg)  
+
 Let's say you have you already have the green nodes since they are common subroutines. You would only have to download the orange nodes. Where this bandwidth saving could be very important is things like Ethereum light clients but also for general computation. As Web Pages begin to more and more resemble, apps the larger their code size becomes. In the age of ephemeral webapps repeat code is downloaded many times. How many times do you think you have downloaded jquery? Couple this with a peer-to-peer distribution method like [IPFS](https://ipfs.io/) and I think you have a very efficient system.
 
