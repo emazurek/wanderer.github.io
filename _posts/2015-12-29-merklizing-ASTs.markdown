@@ -72,7 +72,7 @@ One reason is code security. It would make DLL hijack impossible. Of course how 
 
 Have you ever had a software problem that you googled and found that 100s of forum posts with the same problem as you but none of their solutions worked for you? This is maybe in part caused by the fact you computer is in a different configuration or ‘state’ then thiers. If we had secure merklized code this would a lot less common since the state of any given piece of software could be immediately determined or set by the root hash.
 
-Perhaps one the most convincing reason is bandwidth saving and massive code duplication. How many nearly-the-same versions of libraries you have on your harddrive? Or how many time the same function and routine is duplicated through programs?    
+Perhaps one the most convincing reason is bandwidth saving and massive code deduplication. How many nearly-the-same versions of libraries you have on your harddrive? Or how many time the same function and routine is duplicated through programs?    
 
 ![](https://cdn.rawgit.com/wanderer/wanderer.github.io/dea025059e91802d62005f16e8c49ced234e5783/_posts/images/Merklizing%20ASTs-bandwidth.svg)  
 
