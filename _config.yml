@@ -1,10 +1,8 @@
 # Site settings
 title: Wanderer's musings
-email: mjbecze@gmail.com
+email: null_radix@riseup.net
 username: wanderer
-description: "Wanderer aka Martin Becze writes things here. Mainly about programming"
-baseurl: ""
-url: "http://yourdomain.com"
+description: "Wanderer aka null_radix writes things here. Mainly about programming"
 
 # Build settings
 markdown: kramdown
