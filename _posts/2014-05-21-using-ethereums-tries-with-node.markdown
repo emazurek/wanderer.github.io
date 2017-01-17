@@ -8,7 +8,7 @@ comments: true
 
 If you not familiar with ethereum start [here](https://www.ethereum.org/). In this post I will attempt to read [cpp-ethereum's](https://github.com/ethereum/cpp-ethereum) state db give a root using Node.js and the [merkle-patricia-tree](https://github.com/wanderer/merkle-patricia-tree) module. The merkle-patricia-tree module is hot off the press so there might be bugs. If you find any please let me know. The State DB is like a global ledger; It stores balances of all the accounts was well as the code for all of the contracts and their respective balances.
 
-The global state is stored in a modified merkle patriate tree (trie), which you can read more about in the [yellow paper](http://gavwood.com/Paper.pdf) or on the [wiki](https://github.com/ethereum/wiki/wiki/%5BEnglish%5D-Patricia-Tree). The important part is understanding what it is suppose to do, which is "The core of the trie, and its sole requirement in terms of the protocol specification is to provide a single 32-byte value that identifies a given set of key-value pairs."
+The global state is stored in a modified merkle patricia tree (trie), which you can read more about in the [yellow paper](http://gavwood.com/Paper.pdf) or on the [wiki](https://github.com/ethereum/wiki/wiki/%5BEnglish%5D-Patricia-Tree). The important part is understanding what it is suppose to do, which is "The core of the trie, and its sole requirement in terms of the protocol specification is to provide a single 32-byte value that identifies a given set of key-value pairs."
 
 ## Reading the db
 
